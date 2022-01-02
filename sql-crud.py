@@ -10,6 +10,9 @@ db = create_engine("postgresql:///chinook")
 base = declarative_base()
 
 
+
+
+
 # instad of connecting directly to our database, we will ask for a session
 # create a new instance of sessionmaker, then point to our engine - db
 Session = sessionmaker(db)
