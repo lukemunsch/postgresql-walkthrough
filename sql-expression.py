@@ -9,7 +9,7 @@ meta = MetaData(db)
 
 
 # creating ariable for the artist table
-artist_table = Tsble(
+artist_table = Table(
     "Artist", meta,
     Column("ArtistId", Integer, primary_key=True),
     Column("Name", String)
@@ -40,3 +40,10 @@ track_table = Table(
 
 # making the connection
 with db.connect() as connection:
+
+    # query 1: selet all records from teh "Artist" table
+    select_query = artist_table.select()
+
+    results = connection.execute(select_query)
+    for result in results:
+        print(result)
